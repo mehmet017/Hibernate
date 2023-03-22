@@ -37,15 +37,28 @@ public class RunnerFetch01 {
         // !!! 2. Yol: SQL ************************************************
 
 
-        String sqlQuery = "SELECT * FROM t_student01";
-        List<Object[]> resultList = session.createSQLQuery(sqlQuery).getResultList();
-        for (Object[] object: resultList) {
-            System.out.println(Arrays.toString(object));
-        }
+//        String sqlQuery = "SELECT * FROM t_student01";
+//        List<Object[]> resultList = session.createSQLQuery(sqlQuery).getResultList();
+//        for (Object[] object: resultList) {
+//            System.out.println(Arrays.toString(object));
+//        }
+//
 
+        // !!! 3.Yol : HQL ***************************************************
+        // Trick : HQL sorgusunda From dan sonra sinif ismi kullanilmali
+//        String hqlQuery = "FROM Student01";
+//        List<Student01> resultList2 = session.createQuery(hqlQuery, Student01.class).getResultList();
+//        for (Student01 student01 : resultList2) {
+//            System.out.println(student01);
+//        }
 
+        // Not : yukardaki 3 metodu kiyaslayalim ...
+        // 1.hazir Metod 2. HQL 3. SQL
+// !!! Donecek kaydin unique ( tek bir tane ) oldugundan emin isem uniqueResult() ..
 
-
+        String sqlQuery2 = "SELECT * FROM t_student01 WHERE student_name ='Cemil Bey'";
+        Object[] uniqueResult1 = (Object[]) session.createSQLQuery(sqlQuery2).uniqueResult();
+        System.out.println(Arrays.toString(uniqueResult1));
 
 
         tx.commit();
