@@ -56,9 +56,21 @@ public class RunnerFetch01 {
         // 1.hazir Metod 2. HQL 3. SQL
 // !!! Donecek kaydin unique ( tek bir tane ) oldugundan emin isem uniqueResult() ..
 
-        String sqlQuery2 = "SELECT * FROM t_student01 WHERE student_name ='Cemil Bey'";
-        Object[] uniqueResult1 = (Object[]) session.createSQLQuery(sqlQuery2).uniqueResult();
-        System.out.println(Arrays.toString(uniqueResult1));
+//        String sqlQuery2 = "SELECT * FROM t_student01 WHERE student_name ='Cemil Bey'";
+//        Object[] uniqueResult1 = (Object[]) session.createSQLQuery(sqlQuery2).uniqueResult();
+//        System.out.println(Arrays.toString(uniqueResult1));
+//
+//        //!!! YUKARIDAKI sorguyu HQL alias kullanarak yapalim
+//        String hqlQuery3 = "FROM Student01 std WHERE std.name='Cemil Bey'";
+//        Student01 uniqueResult3 =session.createQuery(hqlQuery3, Student01.class).uniqueResult();
+//        System.out.println(uniqueResult3);
+
+        //!!! HQL ile grade degeri 90 olan ogrenciyi getirelim
+        String hqlQuery4 = "Select s.id, s.name From Student01 s Where s.grade=90";
+        List<Object []> resultList4 = session.createQuery(hqlQuery4).getResultList();
+        for (Object [] object : resultList4){
+            System.out.println(Arrays.toString(object));
+        }
 
 
         tx.commit();
