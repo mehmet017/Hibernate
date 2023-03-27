@@ -18,6 +18,7 @@ public class RunnerSave01 {
         student2.setId(1002);
         student2.setName("Cemil Bey");
         student2.setGrade(90);
+
         Student01 student3 = new Student01();
         student3.setId(1003);
         student3.setName("Fatih Deniz");
@@ -27,19 +28,19 @@ public class RunnerSave01 {
                 configure("hibernate.cfg.xml").addAnnotatedClass(Student01.class);
         // yukardaki satirda, Hibernate 'e konfigurasyon dosyami ve Entity classimi bildirdim
 
-        SessionFactory sf = con.buildSessionFactory();
-        Session session = sf.openSession();
-        Transaction tx = session.beginTransaction();
+         SessionFactory sf = con.buildSessionFactory();
+         Session session = sf.openSession();
+         Transaction tx = session.beginTransaction();
 
-         session.save(student1);
-        session.save(student2);
-              session.save(student3);
+//         session.save(student1);
+//         session.save(student2);
+  //       session.save(student3);
 
 
-        tx.commit();
+         tx.commit();
 
-        session.close();
-        sf.close();
+         session.close();
+         sf.close();
 
 
     }

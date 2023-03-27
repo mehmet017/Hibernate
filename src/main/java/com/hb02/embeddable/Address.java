@@ -10,7 +10,7 @@ public class Address {
     private String country;
     private String zipCode;
 
-        // !!! Getter-Setter
+    // !!! Getter-Setter
 
     public String getStreet() {
         return street;
@@ -44,7 +44,7 @@ public class Address {
         this.zipCode = zipCode;
     }
 
-        // !!! toString()
+    // !!! toString()
 
     @Override
     public String toString() {

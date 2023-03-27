@@ -1,41 +1,45 @@
-package com.hb03.uni_onetoone;
+package com.hb04.bi_onetoone;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class RunnerSave03 {
+public class RunnerSave04 {
 
     public static void main(String[] args) {
 
-        Student03 student1 = new Student03();
+        Student04 student1 = new Student04();
         student1.setId(1001);
-        student1.setName("Ilker Bey");
-        student1.setGrade(80);
+        student1.setName("Ahmet");
+        student1.setGrade(50);
 
-        Student03 student2 = new Student03();
+        Student04 student2 = new Student04();
         student2.setId(1002);
-        student2.setName("Akin Toprak");
-        student2.setGrade(85);
+        student2.setName("Mehmet");
+        student2.setGrade(65);
 
-        Student03 student3 = new Student03();
+        Student04 student3 = new Student04();
         student3.setId(1003);
-        student3.setName("Gulsum Hanim");
-        student3.setGrade(75);
+        student3.setName("Asuman");
+        student3.setGrade(77);
 
-        Diary diary1 = new Diary();
+        Diary04 diary1 = new Diary04();
         diary1.setId(101);
-        diary1.setName("Ilker beyin gunlugu");
+        diary1.setName("A diary");
         diary1.setStudent(student1);
 
-        Diary diary2 = new Diary();
+        Diary04 diary2 = new Diary04();
         diary2.setId(102);
-        diary2.setName("Akin beyin gunlugu");
+        diary2.setName("B diary");
         diary2.setStudent(student2);
 
+        Diary04 diary3 = new Diary04();
+        diary3.setId(103);
+        diary3.setName("Ogrencisi olmayan gunluk");
+
         Configuration con = new Configuration().configure("hibernate.cfg.xml").
-                addAnnotatedClass(Student03.class).addAnnotatedClass(Diary.class);
+                addAnnotatedClass(Student04.class).addAnnotatedClass(Diary04.class);
 
         SessionFactory sf = con.buildSessionFactory();
         Session session = sf.openSession();
@@ -47,15 +51,13 @@ public class RunnerSave03 {
 
         session.save(diary1);
         session.save(diary2);
+        session.save(diary3);
 
 
         tx.commit();
-
         session.close();
         sf.close();
 
 
-
     }
-
 }

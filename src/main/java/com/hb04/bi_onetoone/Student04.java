@@ -1,24 +1,26 @@
-package com.hb02.embeddable;
+package com.hb04.bi_onetoone;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
-@Table(name = "t_student02")
-public class Student02 {
+public class Student04 {
 
     @Id
-    private int id ;
+    private int id;
 
-    @Column(name="student_name", length = 100, nullable = false, unique = false)
-    private String name;
+    @Column(name="std_name")
+    private String name ;
 
     private int grade;
 
-    @Embedded // Opsiyonel
-    private Address address;
+    @OneToOne(mappedBy = "student") //!!! sadece Diary tablosunda iliski icin yeni bir kolon
+    // olusmasini sagliyoruz
+    private Diary04 diary;
 
-    // !!! Getter-Setter
-
+    //!!! Getter- Setter
 
     public int getId() {
         return id;
@@ -44,22 +46,23 @@ public class Student02 {
         this.grade = grade;
     }
 
-    public Address getAddress() {
-        return address;
+    public Diary04 getDiary() {
+        return diary;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setDiary(Diary04 diary) {
+        this.diary = diary;
     }
 
     // !!! toString()
 
     @Override
     public String toString() {
-        return "Student02{" +
+        return "Student04{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", grade=" + grade +
+                ", diary=" + diary +
                 '}';
     }
 }

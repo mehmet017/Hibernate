@@ -10,13 +10,12 @@ public class Student03 {
     @Id
     private int id;
 
-    @Column(name="Std_name")
+    @Column(name="std_name")
     private String name;
 
-    private  int grade;
+    private int grade;
 
-    ///!!! Getter-Setter
-
+    //!!! Getter-Setter
 
     public int getId() {
         return id;
@@ -41,6 +40,8 @@ public class Student03 {
     public void setGrade(int grade) {
         this.grade = grade;
     }
+
+    //!!! toString()
 
     @Override
     public String toString() {
