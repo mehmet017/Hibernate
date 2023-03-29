@@ -1,23 +1,17 @@
-package com.hb04.bi_onetoone;
+package com.hb06.uni_onetomany;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 
 @Entity
-public class Diary04 {
+public class Book06 {
 
     @Id
     private int id;
 
     private String name;
 
-    @OneToOne
-    @JoinColumn(name ="std_id")
-    private Student04 student;
-
-    // !!! Getter- Setter
+    // !!! Getter-Setter
 
     public int getId() {
         return id;
@@ -35,22 +29,13 @@ public class Diary04 {
         this.name = name;
     }
 
-    public Student04 getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student04 student) {
-        this.student = student;
-    }
-
-    // !!! toString()
+    //!!! toString()
 
     @Override
     public String toString() {
-        return "Diary04{" +
+        return "Book06{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-               /* ", student=" + student +*/
                 '}';
     }
 }
